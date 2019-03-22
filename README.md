@@ -35,7 +35,7 @@ $ bundle exec rails server
 ```
 
 
-####  GET /authenticate
+####  POST /authenticate
 
 Get an authentication token to use with the geocoding endpoint
 ```bash
