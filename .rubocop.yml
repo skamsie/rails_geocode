@@ -1,0 +1,53 @@
+AllCops:
+  Exclude:
+    - bin/**
+    - Gemfile
+    - config/**/*
+    - vendor/**/*
+
+Lint/UriEscapeUnescape:
+  Enabled: false
+
+Layout/MultilineMethodCallBraceLayout:
+    Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Performance/StringReplacement:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Documentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 60
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 80
+  Exclude:
+    - db/**/*.rb
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - db/**/*.rb
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false

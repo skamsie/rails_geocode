@@ -1,0 +1,4 @@
+example_id                                             | status | run_time        |
+------------------------------------------------------ | ------ | --------------- |
+./spec/controllers/geocode_controller_spec.rb[1:1:1:1] | passed | 0.03281 seconds |
+./spec/controllers/geocode_controller_spec.rb[1:1:2:1] | passed | 25.93 seconds   |

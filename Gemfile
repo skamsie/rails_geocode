@@ -11,24 +11,22 @@ gem "simple_command"
 gem "http"
 gem "pry"
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
-  gem "rspec-rails"
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => "master"
+  end
+
+  gem "factory_bot"
+  gem "pry-byebug"
+  gem "rack-test", require: "rack/test"
   gem "dotenv-rails"
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rubocop"
+  gem "timecop"
+  gem "webmock"
+  gem "database_cleaner"
 end
 
 group :development do

@@ -4,7 +4,7 @@ class GeocodeController < ApplicationController
   before_action :parse_params
 
   def index
-    if get_cached_data.blank? || @cache == "false"
+    if cached_data.blank? || @cache == "false"
       result = JSON.parse(google_data)
 
       unless result["status"] == "OK"
@@ -15,11 +15,9 @@ class GeocodeController < ApplicationController
         .first_or_create
         .update_attributes(geocode_data(result))
     end
-
-    render json: get_cached_data.attributes.except("id")
-
+    render json: cached_data.attributes.except("id")
   rescue JSON::ParserError
-    return handle_error("Unknown Error")
+    handle_error("Unknown Error")
   end
 
   private
@@ -38,7 +36,7 @@ class GeocodeController < ApplicationController
     return handle_error("'address' is mandatory") unless @address.present?
   end
 
-  def get_cached_data
+  def cached_data
     Geocode.find_by(query: @address)
   end
 
