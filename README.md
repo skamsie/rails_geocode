@@ -1,4 +1,4 @@
-# geocode_rails
+# rails_geocode
 
 Ruby on Rails example API for geocoding based on google maps api data
 
