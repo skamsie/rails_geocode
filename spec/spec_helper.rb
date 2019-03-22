@@ -39,7 +39,7 @@ RSpec.configure do |config|
   end
 
   def stub_google_geocode_request(address, lat, lng, status = "OK", mal = false)
-    st = stub_request(:get, "https://maps.googleapis.com/maps/api/geocode/json")
+    st = stub_request(:get, ENV["GOOGLE_GEOCODE_URL"])
       .with(
         query: {
           address: address.to_s.downcase,

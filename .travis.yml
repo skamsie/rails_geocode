@@ -6,6 +6,7 @@ cache: bundler
 addons:
   postgresql: "9.6"
 before_script:
+  - cp .env.sample .env
   - bundle exec rake db:create
   - bundle exec rake db:migrate db:test:prepare
 script:

@@ -7,7 +7,7 @@ RSpec.describe GeocodeController do
 
       it "returns unauthentication error" do
         expect(response_body).to eq(
-          "error" => "Not Authorized", "token" => ["Invalid token"]
+          "error" => "Not Authorized", "token" => ["Token invalid or expired"]
         )
       end
     end

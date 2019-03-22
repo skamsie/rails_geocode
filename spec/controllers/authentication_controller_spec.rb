@@ -18,7 +18,8 @@ RSpec.describe AuthenticationController do
       end
 
       it "generates the token for the user" do
-        expect(response_body.key?("auth_token")).to be_truthy
+        expect(response_body.key?("token")).to be_truthy
+        expect(response_body.key?("expires_at")).to be_truthy
       end
     end
 

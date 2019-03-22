@@ -21,12 +21,7 @@ class AuthorizeApiRequest
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
 
     if @decoded_auth_token.blank?
-      errors.add(:token, "Invalid token")
-      return nil
-    end
-
-    if Time.now > Time.at(@decoded_auth_token["exp"])
-      errors.add(:token, "Expired token")
+      errors.add(:token, "Token invalid or expired")
       return nil
     end
 

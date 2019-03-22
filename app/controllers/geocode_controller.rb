@@ -24,7 +24,7 @@ class GeocodeController < ApplicationController
 
   def google_data
     HTTP.get(
-      "https://maps.googleapis.com/maps/api/geocode/json",
+      ENV["GOOGLE_GEOCODE_URL"],
       params: { key: ENV["GOOGLE_API_KEY"], address: @address }
     )
   end
