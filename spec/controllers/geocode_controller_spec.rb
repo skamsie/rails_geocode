@@ -47,6 +47,18 @@ RSpec.describe GeocodeController do
           end
         end
 
+        context "when the address param is not passed" do
+          before { get :index }
+
+          it "has status code 422" do
+            expect(response.status).to eq(422)
+          end
+
+          it "has 'address is mandatory' error" do
+            expect(response_body).to eq("error" => "'address' is mandatory")
+          end
+        end
+
         context "when google response has no results" do
           before do
             stub_google_geocode_request(
